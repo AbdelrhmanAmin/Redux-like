@@ -1,12 +1,12 @@
 import EventsManager from "./EventsManager";
 
 class Store {
-  constructor(props) {
-    this.state = {};
+  constructor({ reducers, initialState }) {
+    this.state = initialState || {};
     this.events = new EventsManager();
-    this.reducers = props.reducers || [];
+    this.reducers = reducers || [];
     // A proxy to supervise the state and publish events
-    this.state = new Proxy(props.state || this.state, {
+    this.state = new Proxy(this.state, {
       set: (target, key, value) => {
         target[key] = value;
         this.events.publish("stateChange", {
@@ -18,23 +18,13 @@ class Store {
     });
   }
 
-  dispatch(action, payload) {
-    const emitter = this.actions[action];
-    if (emitter) {
-      this.trigger(emitter, payload);
-    } else {
-      console.error(`Action ${action} not found`);
-    }
-  }
-  trigger(action, payload) {
-    const reducer = this.reducers[action];
-    if (reducer) {
-      const currentState = this.state;
-      const newState = reducer(currentState, payload);
-      this.state = newState;
-    } else {
-      console.error(`${action} has no reducer`);
-    }
+  dispatch(type, payload) {
+    this.reducers.forEach((reducer) => {
+      const newState = reducer(this.state, { type, payload });
+      if (newState !== this.state) {
+        this.state = newState;
+      }
+    });
   }
   // to avoid having to use this.store.events.method_name()
   subscribe(action, callback) {
