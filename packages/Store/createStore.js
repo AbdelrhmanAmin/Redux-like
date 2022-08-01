@@ -1,4 +1,4 @@
-const { Store } = require("./Store");
+import Store from "./Store";
 
 const createStore = (rootReducer) => {
   // rootReducer(state = {}, action = {})
@@ -6,6 +6,4 @@ const createStore = (rootReducer) => {
   return new Store({ reducer: rootReducer, initialState: state });
 };
 
-module.exports = {
-  createStore,
-}
+export default createStore;

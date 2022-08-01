@@ -9,6 +9,4 @@ const findDiff = (prev, next) => {
   return diff;
 };
 
-module.exports = {
-  findDiff,
-};
+export default findDiff;

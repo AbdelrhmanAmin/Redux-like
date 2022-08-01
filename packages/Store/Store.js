@@ -1,5 +1,5 @@
-const { EventsManager } = require("./EventsManager");
-const { findDiff } = require("./utils/findDiff");
+import EventsManager from "./EventsManager";
+import findDiff from "./findDiff";
 class Store {
   constructor({ reducer, initialState }) {
     this.state = initialState || {};
@@ -45,6 +45,4 @@ class Store {
   // ------------------------------------------------------------
 }
 
-module.exports = {
-  Store,
-};
+export default Store;
