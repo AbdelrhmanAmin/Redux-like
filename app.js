@@ -18,9 +18,7 @@ const store = createStore({
   },
 });
 
-store.subscribe("stateChange", (state) => {
-  console.log(state);
-});
+store.subscribe("stateChange", () => store.getState());
 
 store.dispatch("INCREMENT", { amount: 2 });
 store.dispatch("DECREMENT", { amount: 1 });

@@ -16,7 +16,9 @@ class Store {
       },
     });
   }
-
+  getState() {
+    return this.state;
+  }
   dispatch(type, payload) {
     this.reducers.forEach((reducer) => {
       const newState = reducer(this.state, { type, payload });
