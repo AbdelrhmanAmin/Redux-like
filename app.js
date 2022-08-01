@@ -32,7 +32,6 @@ const store = createStore(rootReducer);
 const token = store.subscribe("stateChange", () =>
   console.log(store.getState())
 );
-store.unsubscribe("stateChange", token);
 
 store.dispatch({ type: "INCREMENT", amount: -2 });
 store.dispatch({ type: "DECREMENT", amount: 1 });
@@ -41,3 +40,5 @@ store.dispatch({ type: "ADD_ITEM", item: "item1" });
 store.dispatch({ type: "ADD_ITEM", item: "item2" });
 store.dispatch({ type: "ADD_ITEM", item: "item3" });
 store.dispatch({ type: "REMOVE_ITEM", item: "item2" });
+
+store.unsubscribe("stateChange", token);
