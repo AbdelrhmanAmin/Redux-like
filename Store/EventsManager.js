@@ -8,8 +8,9 @@ class EventsManager {
       // an array to store the callbacks of all the subscribers
       this.events[event] = [];
     }
-    const token = this.events[event].length;
+    const token = this.events[event].length + 1;
     this.events[event].push({ callback, token });
+
     return token;
   }
   publish(event, data) {
@@ -21,10 +22,10 @@ class EventsManager {
     }
   }
   // use token to unsubscribe
-  unsubscribe(event, token) {
+  unsubscribe(event, evtToken) {
     if (this.events[event]) {
       this.events[event] = this.events[event].filter(
-        ({ evtToken }) => evtToken !== token
+        ({ token }) => token !== evtToken
       );
     }
   }

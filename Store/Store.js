@@ -34,13 +34,13 @@ class Store {
   }
   // to avoid having to use this.store.eventsManager.method_name()
   subscribe(action, callback) {
-    this.eventsManager.subscribe(action, callback);
+    return this.eventsManager.subscribe(action, callback);
   }
   unsubscribe(action, callback) {
-    this.eventsManager.unsubscribe(action, callback);
+    return this.eventsManager.unsubscribe(action, callback);
   }
   publish(action, payload) {
-    this.eventsManager.publish(action, payload);
+    return this.eventsManager.publish(action, payload);
   }
   // ------------------------------------------------------------
 }
