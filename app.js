@@ -18,8 +18,10 @@ const store = createStore({
   },
 });
 
-store.subscribe("stateChange", () => store.getState());
+store.subscribe("stateChange", () => console.log(store.getState()));
 
-store.dispatch("INCREMENT", { amount: 2 });
-store.dispatch("DECREMENT", { amount: 1 });
-store.dispatch("INCREMENT");
+store.dispatch({ type: "INCREMENT", amount: 2 });
+console.log(store.getState());
+store.dispatch({ type: "DECREMENT", amount: 1 });
+console.log(store.getState());
+store.dispatch({ type: "INCREMENT" });

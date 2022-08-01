@@ -19,9 +19,9 @@ class Store {
   getState() {
     return this.state;
   }
-  dispatch(type, payload) {
+  dispatch({ type, ...rest }) {
     this.reducers.forEach((reducer) => {
-      const newState = reducer(this.state, { type, payload });
+      const newState = reducer(this.state, { type, ...rest });
       // if the reducer returns the same state, it means it didn't return a new state.
       if (newState !== this.state) {
         this.state = newState;
