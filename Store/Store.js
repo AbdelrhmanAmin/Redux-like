@@ -21,6 +21,8 @@ class Store {
   dispatch(type, payload) {
     this.reducers.forEach((reducer) => {
       const newState = reducer(this.state, { type, payload });
+      // if the reducer returns the same state, it means it didn't return a new state,
+      // because reducers are pure functions, they should not mutate the state.
       if (newState !== this.state) {
         this.state = newState;
       }
