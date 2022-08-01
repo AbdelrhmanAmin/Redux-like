@@ -1,5 +1,4 @@
-import EventsManager from "./EventsManager";
-
+const { EventsManager } = require("./EventsManager");
 class Store {
   constructor({ reducers, initialState }) {
     this.state = initialState || {};
@@ -44,4 +43,6 @@ const createStore = ({ reducers, initialState }) => {
   return new Store({ reducers, initialState });
 };
 
-export default createStore;
+module.exports = {
+  createStore,
+};

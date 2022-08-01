@@ -1,4 +1,4 @@
-const createStore = require("./Store");
+const { createStore } = require("./Store");
 
 const counterReducer = (state, action) => {
   switch (action.type) {

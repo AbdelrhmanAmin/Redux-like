@@ -1,1 +1,5 @@
-export { default as createStore } from "./Store";
+const { createStore } = require("./Store");
+
+module.exports = {
+  createStore,
+};
