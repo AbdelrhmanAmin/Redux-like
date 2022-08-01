@@ -41,6 +41,8 @@ class Store {
   // ------------------------------------------------------------
 }
 
+// refactor later to take reducers by default e.g createStore(reducers)
+// also think about implementing a root reducer or combineReducers.
 const createStore = ({ reducers, initialState }) => {
   return new Store({ reducers, initialState });
 };
