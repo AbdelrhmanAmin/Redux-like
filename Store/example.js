@@ -1,9 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import Provider from "./components/Provider";
-import { combineReducers, createStore } from "@redux-like/store";
-import "./index.css";
+// const { createStore, combineReducers } = require("./Store");
 
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
@@ -34,10 +29,15 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+const token = store.subscribe("stateChange", () =>
+  console.log(store.getState())
 );
+
+store.dispatch({ type: "INCREMENT", amount: -2 });
+store.dispatch({ type: "DECREMENT", amount: 1 });
+store.dispatch({ type: "INCREMENT" });
+store.unsubscribe("stateChange", token);
+store.dispatch({ type: "ADD_ITEM", item: "item1" });
+store.dispatch({ type: "ADD_ITEM", item: "item2" });
+store.dispatch({ type: "ADD_ITEM", item: "item3" });
+store.dispatch({ type: "REMOVE_ITEM", item: "item2" });

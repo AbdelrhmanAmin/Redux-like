@@ -2,7 +2,8 @@
   "name": "state-manager",
   "private": true,
   "workspaces": [
-    "Store"
+    "Store",
+    "state-manager-react"
   ],
   "version": "1.0.0",
   "description": "",

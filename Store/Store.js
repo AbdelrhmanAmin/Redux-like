@@ -1,5 +1,5 @@
 import EventsManager from "./EventsManager";
-import findDiff from "./findDiff";
+import findDiff from "./utils/findDiff";
 class Store {
   constructor({ reducer, initialState }) {
     this.state = initialState || {};
