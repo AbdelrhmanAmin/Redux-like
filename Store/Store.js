@@ -5,7 +5,7 @@ class Store {
     this.state = initialState || {};
     this.events = new EventsManager();
     this.reducers = reducers || [];
-    // A proxy to supervise the state and publish events
+    // A proxy to supervise the state and publish updates to the subscribers.
     this.state = new Proxy(this.state, {
       set: (target, key, value) => {
         target[key] = value;
@@ -40,4 +40,8 @@ class Store {
   // ------------------------------------------------------------
 }
 
-export default Store;
+const createStore = ({ reducers, initialState }) => {
+  return new Store({ reducers, initialState });
+};
+
+export default createStore;
