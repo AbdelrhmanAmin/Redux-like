@@ -29,7 +29,10 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-store.subscribe("stateChange", () => console.log(store.getState()));
+const token = store.subscribe("stateChange", () =>
+  console.log(store.getState())
+);
+store.unsubscribe("stateChange", token);
 
 store.dispatch({ type: "INCREMENT", amount: -2 });
 store.dispatch({ type: "DECREMENT", amount: 1 });

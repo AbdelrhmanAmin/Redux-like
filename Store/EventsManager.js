@@ -8,19 +8,24 @@ class EventsManager {
       // an array to store the callbacks of all the subscribers
       this.events[event] = [];
     }
-    this.events[event].push(callback);
+    const token = this.events[event].length;
+    this.events[event].push({ callback, token });
+    return token;
   }
   publish(event, data) {
     if (this.events[event]) {
       // call the callbacks of the subscribers
-      this.events[event].forEach((callback) => {
+      this.events[event].forEach(({ callback }) => {
         callback(data);
       });
     }
   }
-  unsubscribe(event, callback) {
+  // use token to unsubscribe
+  unsubscribe(event, token) {
     if (this.events[event]) {
-      this.events[event] = this.events[event].filter((cb) => cb !== callback);
+      this.events[event] = this.events[event].filter(
+        ({ evtToken }) => evtToken !== token
+      );
     }
   }
 }
