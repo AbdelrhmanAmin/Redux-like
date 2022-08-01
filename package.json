@@ -2,7 +2,7 @@
   "name": "state-manager",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "Store"
   ],
   "version": "1.0.0",
   "description": "",
