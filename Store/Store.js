@@ -1,4 +1,5 @@
 const { EventsManager } = require("./EventsManager");
+const { findDiff } = require("./utils/findDiff");
 class Store {
   constructor({ reducer, initialState }) {
     this.state = initialState || {};
@@ -25,9 +26,11 @@ class Store {
   dispatch({ type, ...rest }) {
     const action = { type, ...rest };
     const newState = this.reducer(this.state, action);
-    if (newState !== this.state) {
-      this.state = Object.assign(this.state, newState);
-    }
+    // only update the affected slots in state.
+    const diff = findDiff(this.state, newState);
+    Object.keys(diff).forEach((key) => {
+      this.state[key] = newState[key];
+    });
   }
   // to avoid having to use this.store.eventsManager.method_name()
   subscribe(action, callback) {
