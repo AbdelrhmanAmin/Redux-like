@@ -21,7 +21,5 @@ const store = createStore({
 store.subscribe("stateChange", () => console.log(store.getState()));
 
 store.dispatch({ type: "INCREMENT", amount: 2 });
-console.log(store.getState());
 store.dispatch({ type: "DECREMENT", amount: 1 });
-console.log(store.getState());
 store.dispatch({ type: "INCREMENT" });

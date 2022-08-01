@@ -24,7 +24,7 @@ class Store {
       const newState = reducer(this.state, { type, ...rest });
       // if the reducer returns the same state, it means it didn't return a new state.
       if (newState !== this.state) {
-        this.state = newState;
+        this.state = Object.assign(this.state, newState);
       }
     });
   }
