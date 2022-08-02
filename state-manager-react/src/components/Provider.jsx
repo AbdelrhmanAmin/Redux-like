@@ -3,16 +3,15 @@ import { createContext, useContext, useEffect, useMemo } from "react";
 const StoreContext = createContext();
 
 const Provider = ({ children, store }) => {
-  const token = useMemo(
-    () => store.subscribe("stateChanged", () => store.getState()),
-    [store]
-  );
   const contextValue = useMemo(() => {
     return {
       store,
     };
   }, [store]);
   useEffect(() => {
+    const token = store.subscribe("stateChanged", () =>
+      console.log(store.getState())
+    );
     return () => {
       store.unsubscribe(token);
     };

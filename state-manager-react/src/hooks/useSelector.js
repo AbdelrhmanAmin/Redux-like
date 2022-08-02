@@ -1,6 +1,8 @@
+import { useStore } from "../components/Provider";
+
 // useSelector(state => state.count)
 const useSelector = (selector) => {
-  const store = useContext(StoreContext);
+  const store = useStore();
   return selector(store.getState());
 };
 
