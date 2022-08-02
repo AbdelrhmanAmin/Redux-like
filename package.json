@@ -9,7 +9,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn --cwd state-manager-react dev",
+    "build": "yarn --cwd state-manager-react build",
+    "preview": "yarn --cwd state-manager-react preview"
   },
   "repository": {
     "type": "git",
