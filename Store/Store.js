@@ -13,7 +13,6 @@ class Store {
     return this.state;
   };
   dispatch = ({ type, ...rest }) => {
-    let self = this;
     const action = { type, ...rest };
     const newState = this.reducer(this.state, action);
     // only update the affected slots in state.
@@ -24,15 +23,15 @@ class Store {
     // this.eventsManager.publish("count");
   };
   // to avoid having to use this.store.eventsManager.method_name()
-  subscribe(action, callback) {
+  subscribe = (action, callback) => {
     return this.eventsManager.subscribe(action, callback);
-  }
-  unsubscribe(action, callback) {
+  };
+  unsubscribe = (action, callback) => {
     return this.eventsManager.unsubscribe(action, callback);
-  }
-  publish(action, payload) {
+  };
+  publish = (action, payload) => {
     return this.eventsManager.publish(action, payload);
-  }
+  };
   // ------------------------------------------------------------
 }
 
