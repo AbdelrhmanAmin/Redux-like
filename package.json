@@ -1,5 +1,10 @@
 {
   "name": "state-manager",
+  "private": true,
+  "workspaces": [
+    "Store",
+    "state-manager-react"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

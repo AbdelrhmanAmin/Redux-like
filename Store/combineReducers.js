@@ -15,6 +15,4 @@ const combineReducers = (reducers) => {
   return rootReducer;
 };
 
-module.exports = {
-  combineReducers,
-};
+export default combineReducers;

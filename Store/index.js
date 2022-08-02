@@ -1,7 +1,3 @@
-const { createStore } = require("./createStore");
-const { combineReducers } = require("./combineReducers");
-
-module.exports = {
-  createStore,
-  combineReducers,
-};
+import createStore from "./createStore";
+import combineReducers from "./combineReducers";
+export{ createStore, combineReducers };
