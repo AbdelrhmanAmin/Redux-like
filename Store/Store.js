@@ -20,10 +20,11 @@ class Store {
       },
     });
   }
-  getState() {
+  getState = () => {
     return this.state;
-  }
-  dispatch({ type, ...rest }) {
+  };
+  dispatch = ({ type, ...rest }) => {
+    let self = this;
     const action = { type, ...rest };
     const newState = this.reducer(this.state, action);
     // only update the affected slots in state.
@@ -31,7 +32,7 @@ class Store {
     Object.keys(diff).forEach((key) => {
       this.state[key] = newState[key];
     });
-  }
+  };
   // to avoid having to use this.store.eventsManager.method_name()
   subscribe(action, callback) {
     return this.eventsManager.subscribe(action, callback);

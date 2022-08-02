@@ -9,7 +9,8 @@ const Provider = ({ children, store }) => {
     };
   }, [store]);
   useEffect(() => {
-    const token = store.subscribe("stateChanged", () =>
+    // why does it subscribe twice?
+    const token = store.subscribe("stateChange", () =>
       console.log(store.getState())
     );
     return () => {
