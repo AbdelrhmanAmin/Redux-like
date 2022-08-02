@@ -8,17 +8,6 @@ class Store {
       throw new Error("Reducer is required");
     }
     this.reducer = reducer;
-    // A proxy to supervise the state and publish updates to the subscribers.
-    this.state = new Proxy(this.state, {
-      set: (target, key, value) => {
-        target[key] = value;
-        this.eventsManager.publish("stateChange", {
-          key,
-          value,
-        });
-        return true;
-      },
-    });
   }
   getState = () => {
     return this.state;
@@ -32,6 +21,7 @@ class Store {
     Object.keys(diff).forEach((key) => {
       this.state[key] = newState[key];
     });
+    // this.eventsManager.publish("count");
   };
   // to avoid having to use this.store.eventsManager.method_name()
   subscribe(action, callback) {

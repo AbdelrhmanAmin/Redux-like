@@ -4,12 +4,14 @@ const Counter = () => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <strong style={{ fontSize: "36px", marginBottom: "30px" }}>
         Count: {count}
       </strong>
