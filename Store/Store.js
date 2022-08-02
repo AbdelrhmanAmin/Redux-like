@@ -19,8 +19,9 @@ class Store {
     const diff = findDiff(this.state, newState);
     Object.keys(diff).forEach((key) => {
       this.state[key] = newState[key];
+      // publish ONLY to the affected subscribers e.g (count, items, ...etc)
+      this.eventsManager.publish(key, newState[key]);
     });
-    // this.eventsManager.publish("count");
   };
   // to avoid having to use this.store.eventsManager.method_name()
   subscribe = (action, callback) => {
