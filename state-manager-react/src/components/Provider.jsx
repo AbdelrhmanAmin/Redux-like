@@ -4,9 +4,7 @@ import { createContext, useContext, useEffect, useMemo } from "react";
 const StoreContext = createContext();
 
 const Provider = ({ children, store }) => {
-  const contextValue = {
-    store,
-  };
+  const contextValue = useMemo(() => ({ store }), [store]);
   return (
     <StoreContext.Provider value={contextValue}>
       {children}
@@ -14,12 +12,6 @@ const Provider = ({ children, store }) => {
   );
 };
 
-export const useStore = () => {
-  const context = useContext(StoreContext);
-  if (context === undefined) {
-    throw new Error("useStore must be used within a Provider");
-  }
-  return context.store;
-};
+export const useStore = () => useContext(StoreContext).store
 
 export default Provider;
