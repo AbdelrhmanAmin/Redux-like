@@ -1,22 +1,22 @@
+import { useReducer } from "react";
 import { createContext, useContext, useEffect, useMemo } from "react";
 
 const StoreContext = createContext();
 
 const Provider = ({ children, store }) => {
-  const contextValue = useMemo(() => {
-    return {
-      store,
-    };
-  }, [store]);
+  const [, forceUpdate] = useReducer((state) => state + 1, 0);
   useEffect(() => {
-    // why does it subscribe twice?
-    const token = store.subscribe("stateChange", () =>
-      console.log(store.getState())
-    );
+    const token = store.subscribe("stateChange", () => {
+      forceUpdate();
+      console.log(store.getState());
+    });
     return () => {
       store.unsubscribe(token);
     };
   }, []);
+  const contextValue = {
+    store,
+  };
   return (
     <StoreContext.Provider value={contextValue}>
       {children}
