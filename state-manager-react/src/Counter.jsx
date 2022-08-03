@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "./hooks";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state).count;
   return (
     <div
       style={{
