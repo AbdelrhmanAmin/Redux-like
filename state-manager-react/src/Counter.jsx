@@ -1,8 +1,11 @@
+import { useEffect } from "react";
+import connect from "./components/connect";
 import { useDispatch, useSelector } from "./hooks";
 
-const Counter = () => {
-  const dispatch = useDispatch();
-  const count = useSelector((state) => state).count;
+const Counter = ({ onIncrement, onDecrement, count }) => {
+  // useEffect(() => {
+  //   console.log(count);
+  // }, [count]);
   return (
     <div
       style={{
@@ -24,19 +27,20 @@ const Counter = () => {
           gap: "10px",
         }}
       >
-        <button onClick={() => dispatch({ type: "INCREMENT", amount: 1 })}>
-          Increment
-        </button>
-        <button
-          onClick={() =>
-            count > 0 && dispatch({ type: "DECREMENT", amount: 1 })
-          }
-        >
-          Decrement
-        </button>
+        <button onClick={() => onIncrement()}>Increment</button>
+        <button onClick={() => count > 0 && onDecrement()}>Decrement</button>
       </div>
     </div>
   );
 };
 
-export default Counter;
+const mapStateToProps = (state) => ({
+  count: state.count,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrement: () => dispatch({ type: "INCREMENT", amount: 1 }),
+  onDecrement: () => dispatch({ type: "DECREMENT", amount: 1 }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
