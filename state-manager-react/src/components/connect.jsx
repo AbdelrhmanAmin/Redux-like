@@ -6,11 +6,11 @@ const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
     const [_, forceUpdate] = useReducer((x) => x + 1, 0);
     const store = useStore();
     useEffect(() => {
-      const token = store.subscribe("state", () => {
-        console.log('hi')
+      const unsubscribe = store.subscribe(() => {
+        console.log("hi");
         forceUpdate();
       });
-      return () => store.unsubscribe(token);
+      return () => unsubscribe();
     }, []);
     return (
       <WrappedComponent

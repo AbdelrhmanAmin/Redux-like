@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import connect from "./components/connect";
-import { useDispatch, useSelector } from "./hooks";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
-  // useEffect(() => {
-  //   console.log(count);
-  // }, [count]);
   return (
     <div
       style={{

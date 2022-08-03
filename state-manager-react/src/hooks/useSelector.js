@@ -10,16 +10,11 @@ const useSelector = (selector) => {
   }
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const store = useStore();
-  // useSelector(state => state[_key_])
-  const target = selector.toString().split("."); // ["(state) => state", _key_]
-  const key = target[1] || "state"; // in case that he did "(state) => state" without specifying the key slot e.g (state.count).
   useEffect(() => {
-    const token = store.subscribe(key, () => {
+    const unsubscribe = store.subscribe(() => {
       forceUpdate();
     });
-    return () => {
-      store.unsubscribe(token);
-    };
+    return () => unsubscribe();
   }, []);
   return selector(store.getState());
 };

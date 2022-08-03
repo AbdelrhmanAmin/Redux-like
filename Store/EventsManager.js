@@ -1,34 +1,26 @@
 class EventsManager {
   constructor() {
-    // { "stateChange": [function1, function2, function3...etc],...etc }
-    this.events = {};
+    this.events = [];
   }
-  subscribe(event, callback) {
-    if (!this.events[event]) {
-      // an array to store the callbacks of all the subscribers
-      this.events[event] = [];
-    }
-    const token = this.events[event].length + 1;
-    this.events[event].push({ callback, token });
-
-    return token;
-  }
-  publish(event, data) {
-    if (this.events[event]) {
-      // call the callbacks of the subscribers
-      this.events[event].forEach(({ callback }) => {
-        callback(data);
-      });
-    }
-  }
+  subscribe = (listener) => {
+    this.events.push(listener);
+    const unsubscribe = () => {
+      this.unsubscribe(listener);
+    };
+    return unsubscribe;
+  };
+  publish = () => {
+    this.events.forEach((listener) => {
+      listener();
+    });
+  };
   // use token to unsubscribe
-  unsubscribe(event, evtToken) {
-    if (this.events[event]) {
-      this.events[event] = this.events[event].filter(
-        ({ token }) => token !== evtToken
-      );
+  unsubscribe = (listener) => {
+    const index = this.events.indexOf(listener);
+    if (index > -1) {
+      this.events.splice(index, 1);
     }
-  }
+  };
 }
 
 export default EventsManager;
