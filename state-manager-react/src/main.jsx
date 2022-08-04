@@ -1,7 +1,7 @@
 import { createStore } from "@redux-like/store";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./playground/App";
 import Provider from "./components/Provider";
 import "./index.css";
 import rootReducer from "./reducers";

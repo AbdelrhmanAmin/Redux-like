@@ -1,4 +1,4 @@
-import connect from "./components/connect";
+import connect from "../components/connect";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
   return (
