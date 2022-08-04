@@ -7,18 +7,15 @@ const Todo = () => {
   const [newItem, setNewItem] = useState("");
   return (
     <div>
-      <strong style={{ fontSize: "36px", marginBottom: "30px" }}>TODO</strong>
-      <ul>
-        {items.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </ul>
+      <strong style={{ fontSize: "36px", marginBottom: "30px" }}>Todo</strong>
+
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
+          marginTop: "5px",
         }}
       >
         <input
@@ -33,6 +30,11 @@ const Todo = () => {
           Add
         </button>
       </div>
+      <ul>
+        {items.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 };

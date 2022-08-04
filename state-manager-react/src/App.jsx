@@ -8,7 +8,6 @@ function App() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
         width: "100vw",
         height: "100vh",
       }}
@@ -17,9 +16,9 @@ function App() {
       <div style={{
         display: "flex",
         flexDirection: "row",
-        alignItems: "center",
+        // alignItems: "center",
         justifyContent: "center",
-        gap: "20px",
+        gap: "40px",
       }}>
         <Counter />
         <Todo />

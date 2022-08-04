@@ -7,7 +7,7 @@ const Counter = ({ onIncrement, onDecrement, count }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "start",
       }}
     >
       <strong style={{ fontSize: "36px", marginBottom: "30px" }}>
