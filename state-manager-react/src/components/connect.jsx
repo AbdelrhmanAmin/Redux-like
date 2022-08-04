@@ -1,22 +1,44 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 import { useStore } from "./Provider";
+import findDiff from "../utils/findDiff";
 
 const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
   return (props) => {
     const [_, forceUpdate] = useReducer((x) => x + 1, 0);
     const store = useStore();
+    let isSubscribed = false;
+    let prevSelectedSlots;
+    if (mapStateToProps && typeof mapStateToProps === "function") {
+      isSubscribed = true;
+      prevSelectedSlots = mapStateToProps(store.getState());
+    }
     useEffect(() => {
-      const unsubscribe = store.subscribe(() => {
-        console.log("hi");
-        forceUpdate();
-      });
-      return () => unsubscribe();
+      let unsubscribe;
+      if (isSubscribed) {
+        unsubscribe = store.subscribe(() => {
+          // Logic to detect if the selected slots have changed, if so then update the component
+          const newSelectedSlots = mapStateToProps(store.getState());
+          const diff = findDiff(prevSelectedSlots, newSelectedSlots);
+          const hasDiff = Array.isArray(diff)
+            ? diff.length > 0
+            : Object.keys(diff).length > 0;
+          if (hasDiff) {
+            prevSelectedSlots = newSelectedSlots;
+            forceUpdate();
+          }
+        });
+      }
+      return () => {
+        if (isSubscribed) {
+          unsubscribe();
+        }
+      };
     }, []);
     return (
       <WrappedComponent
         {...props}
-        {...mapStateToProps(store.getState())}
-        {...mapDispatchToProps(store.dispatch)}
+        {...(isSubscribed ? mapStateToProps(store.getState()) : {})}
+        {...(mapDispatchToProps ? mapDispatchToProps(store.dispatch) : {})}
       />
     );
   };

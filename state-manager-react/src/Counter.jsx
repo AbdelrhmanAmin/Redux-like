@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import connect from "./components/connect";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
