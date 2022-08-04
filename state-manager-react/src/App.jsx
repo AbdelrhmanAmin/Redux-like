@@ -13,13 +13,13 @@ function App() {
       }}
     >
       <h1 style={{ color: "#535bf2" }}>Redux-like!</h1>
-      <div style={{
-        display: "flex",
-        flexDirection: "row",
-        // alignItems: "center",
-        justifyContent: "center",
-        gap: "40px",
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
         <Counter />
         <Todo />
       </div>

@@ -8,6 +8,10 @@ const Counter = ({ onIncrement, onDecrement, count }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "start",
+        marginRight: "40px",
+        paddingRight: "40px",
+        borderRight: "1px solid #ccc",
+        height: "100vh",
       }}
     >
       <strong style={{ fontSize: "36px", marginBottom: "30px" }}>
@@ -19,10 +23,11 @@ const Counter = ({ onIncrement, onDecrement, count }) => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: "10px",
         }}
       >
-        <button onClick={() => onIncrement()}>Increment</button>
+        <button style={{
+          marginRight: "10px",
+        }} onClick={() => onIncrement()}>Increment</button>
         <button onClick={() => count > 0 && onDecrement()}>Decrement</button>
       </div>
     </div>
