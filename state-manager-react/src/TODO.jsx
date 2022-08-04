@@ -15,7 +15,7 @@ const Todo = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "5px",
+          marginTop: "20px",
         }}
       >
         <input
