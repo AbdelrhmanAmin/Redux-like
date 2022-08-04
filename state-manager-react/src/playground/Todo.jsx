@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "../hooks";
 import { useState } from "react";
-import { useDispatch, useSelector } from "./hooks";
 
 const Todo = () => {
   const dispatch = useDispatch();
