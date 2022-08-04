@@ -27,7 +27,12 @@ const Todo = () => {
             width: "200px",
           }}
         />
-        <button onClick={() => dispatch({ type: "ADD_ITEM", item: newItem })}>
+        <button
+          onClick={() => {
+            newItem.length > 0 && dispatch({ type: "ADD_ITEM", item: newItem });
+            setNewItem("");
+          }}
+        >
           Add
         </button>
       </div>
