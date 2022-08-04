@@ -7,7 +7,7 @@ const Todo = () => {
   const [newItem, setNewItem] = useState("");
   return (
     <div>
-      <strong style={{ fontSize: "36px", marginBottom: "30px" }}>Todo</strong>
+      <strong style={{ fontSize: "36px" }}>Todo</strong>
 
       <div
         style={{
@@ -24,6 +24,7 @@ const Todo = () => {
           value={newItem}
           style={{
             height: "30px",
+            width: "200px",
           }}
         />
         <button onClick={() => dispatch({ type: "ADD_ITEM", item: newItem })}>
