@@ -30,7 +30,7 @@ const Todo = () => {
         />
         <button
           onClick={() => {
-            items.length > 0 && dispatch({ type: "ADD_ITEM", item: "===" });
+            newItem.length > 0 && dispatch({ type: "ADD_ITEM", item: newItem });
             setNewItem("");
           }}
         >
