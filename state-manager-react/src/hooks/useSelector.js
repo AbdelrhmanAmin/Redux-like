@@ -1,6 +1,6 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 import { useStore } from "../components/Provider";
-import findDiff from "../utils/findDiff";
+import didStateChange from "../utils/didStateChange";
 
 const useSelector = (selector) => {
   if (!selector || typeof selector !== "function") {
@@ -11,17 +11,19 @@ const useSelector = (selector) => {
   }
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const store = useStore();
-  let prevSelectedSlots = selector(store.getState());
+  let prevState = useMemo(() => selector(store.getState()), []);
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
       // Logic to detect if the selected slots have changed, if so then update the component
-      const newSelectedSlots = selector(store.getState());
-      const diff = findDiff(prevSelectedSlots, newSelectedSlots);
-      const hasDiff = Array.isArray(diff)
-        ? diff.length > 0
-        : Object.keys(diff).length > 0;
-      if (hasDiff) {
-        prevSelectedSlots = newSelectedSlots;
+      const shouldUpdate = didStateChange(prevState, selector, store);
+      console.log("selector", {
+        shouldUpdate,
+        prevState,
+        newState: selector(store.getState()),
+      });
+      if (shouldUpdate) {
+        console.log({ prevState });
+        prevState = selector(store.getState());
         forceUpdate();
       }
     });

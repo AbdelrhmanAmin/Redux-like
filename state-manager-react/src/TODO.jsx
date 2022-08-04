@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "./hooks";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
+  const items = useSelector((state) => state);
   const [newItem, setNewItem] = useState("");
+  useEffect(() => {
+    console.log("Todo: I got called");
+  });
   return (
     <div>
       <strong style={{ fontSize: "36px" }}>Todo</strong>
@@ -29,7 +33,7 @@ const Todo = () => {
         />
         <button
           onClick={() => {
-            newItem.length > 0 && dispatch({ type: "ADD_ITEM", item: newItem });
+            dispatch({ type: "ADD_ITEM", item: "===" });
             setNewItem("");
           }}
         >
@@ -37,9 +41,9 @@ const Todo = () => {
         </button>
       </div>
       <ul>
-        {items.map((item, i) => (
+        {/* {items.map((item, i) => (
           <li key={i}>{item}</li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );
