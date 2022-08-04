@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useReducer } from "react";
-import { useStore } from "./Provider";
+import { useEffect, useReducer } from "react";
 import findDiff from "../utils/findDiff";
+import { useStore } from "./Provider";
 
 const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
   return (props) => {

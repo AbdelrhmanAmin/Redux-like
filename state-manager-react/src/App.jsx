@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-import { useStore } from "./components/Provider";
 import Counter from "./Counter";
-import { useDispatch, useSelector } from "./hooks";
-import Todo from "./TODO";
+import Todo from "./Todo";
 
 function App() {
   return (
