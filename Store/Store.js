@@ -18,22 +18,13 @@ class Store {
     // only update the affected slots in state.
     const diff = findDiff(this.state, newState);
     Object.keys(diff).forEach((key) => {
-      this.state[key] = newState[key];
-      // publish ONLY to the affected subscribers e.g (count, items, ...etc)
-      this.eventsManager.publish(key, newState[key]);
+      this.state = Object.assign({}, this.state, { [key]: newState[key] });
+      this.eventsManager.publish();
     });
   };
-  // to avoid having to use this.store.eventsManager.method_name()
-  subscribe = (action, callback) => {
-    return this.eventsManager.subscribe(action, callback);
+  subscribe = (listener) => {
+    return this.eventsManager.subscribe(listener);
   };
-  unsubscribe = (action, callback) => {
-    return this.eventsManager.unsubscribe(action, callback);
-  };
-  publish = (action, payload) => {
-    return this.eventsManager.publish(action, payload);
-  };
-  // ------------------------------------------------------------
 }
 
 export default Store;

@@ -1,7 +1,7 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 import { useStore } from "../components/Provider";
+import didStateChange from "../utils/didStateChange";
 
-// useSelector(state => state.count)
 const useSelector = (selector) => {
   if (!selector || typeof selector !== "function") {
     if (process.env.NODE_ENV !== "production") {
@@ -11,15 +11,17 @@ const useSelector = (selector) => {
   }
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const store = useStore();
-  const target = selector.toString().split(".");
-  const key = target[1]; // the word after "state"
+  let prevState = useMemo(() => selector(store.getState()), []);
   useEffect(() => {
-    const token = store.subscribe(key, () => {
-      forceUpdate();
+    const unsubscribe = store.subscribe(() => {
+      // Logic to detect if the selected slots have changed, if so then update the component
+      const shouldUpdate = didStateChange(prevState, selector, store);
+      if (shouldUpdate) {
+        prevState = selector(store.getState());
+        forceUpdate();
+      }
     });
-    return () => {
-      store.unsubscribe(token);
-    };
+    return () => unsubscribe();
   }, []);
   return selector(store.getState());
 };
