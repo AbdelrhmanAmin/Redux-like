@@ -18,7 +18,7 @@ class Store {
     // only update the affected slots in state.
     const diff = findDiff(this.state, newState);
     Object.keys(diff).forEach((key) => {
-      this.state[key] = newState[key];
+      this.state = Object.assign({}, this.state, { [key]: newState[key] });
       this.eventsManager.publish();
     });
   };

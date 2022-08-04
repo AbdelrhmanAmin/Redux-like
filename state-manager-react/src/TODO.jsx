@@ -4,11 +4,8 @@ import { useDispatch, useSelector } from "./hooks";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state);
+  const items = useSelector((state) => state.items);
   const [newItem, setNewItem] = useState("");
-  useEffect(() => {
-    console.log("Todo: I got called");
-  });
   return (
     <div>
       <strong style={{ fontSize: "36px" }}>Todo</strong>
@@ -33,7 +30,7 @@ const Todo = () => {
         />
         <button
           onClick={() => {
-            dispatch({ type: "ADD_ITEM", item: "===" });
+            items.length > 0 && dispatch({ type: "ADD_ITEM", item: "===" });
             setNewItem("");
           }}
         >
@@ -41,9 +38,9 @@ const Todo = () => {
         </button>
       </div>
       <ul>
-        {/* {items.map((item, i) => (
+        {items.map((item, i) => (
           <li key={i}>{item}</li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );

@@ -16,13 +16,7 @@ const useSelector = (selector) => {
     const unsubscribe = store.subscribe(() => {
       // Logic to detect if the selected slots have changed, if so then update the component
       const shouldUpdate = didStateChange(prevState, selector, store);
-      console.log("selector", {
-        shouldUpdate,
-        prevState,
-        newState: selector(store.getState()),
-      });
       if (shouldUpdate) {
-        console.log({ prevState });
         prevState = selector(store.getState());
         forceUpdate();
       }
