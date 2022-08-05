@@ -4,6 +4,6 @@ export default {
     format: "iife",
     name: "ReduxLike",
     file: "./dist/redux-like.js",
-    sourceMap: "inline",
+    sourcemap: "inline",
   },
 };
