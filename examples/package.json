@@ -1,11 +1,11 @@
 {
-  "name": "@redux-like/playground",
+  "name": "playground",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mv dist ../",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
