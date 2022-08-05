@@ -1,4 +1,4 @@
-import { combineReducers } from "@redux-like/store";
+import { combineReducers } from "redux-like";
 import counterReducer from "./counterReducer";
 import itemsReducer from "./itemsReducer";
 
