@@ -2,7 +2,7 @@
   "name": "state-manager",
   "private": true,
   "workspaces": [
-    "Redux-like/*"
+    "@Redux-like/*"
   ],
   "version": "1.0.0",
   "description": "",
