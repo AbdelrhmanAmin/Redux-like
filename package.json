@@ -2,9 +2,7 @@
   "name": "state-manager",
   "private": true,
   "workspaces": [
-    "Store",
-    "state-manager-react",
-    "examples"
+    "Redux-like/*"
   ],
   "version": "1.0.0",
   "description": "",
