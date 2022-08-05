@@ -1,5 +1,4 @@
-import { createStore } from "@redux-like/store";
-import { Provider } from "@redux-like/react";
+import { createStore, Provider } from "redux-like";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
