@@ -10,7 +10,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "yarn --cwd examples dev",
-    "build": "yarn --cwd examples build && mv dist ../",
+    "build": "yarn --cwd examples build && cp -R examples/dist ../",
     "preview": "yarn --cwd examples preview"
   },
   "repository": {
