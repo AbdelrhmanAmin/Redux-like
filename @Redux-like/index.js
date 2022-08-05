@@ -1,2 +1,11 @@
-export { Provider, connect, useDispatch, useSelector } from "./React";
-export { createStore, combineReducers } from "./Store";
+import { Provider, connect, useDispatch, useSelector } from "./React";
+import { createStore, combineReducers } from "./Store";
+
+export {
+  Provider,
+  connect,
+  useDispatch,
+  useSelector,
+  createStore,
+  combineReducers,
+};

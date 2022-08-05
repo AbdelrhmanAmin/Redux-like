@@ -1,2 +1,4 @@
-export { Provider, connect } from "./components";
-export { useDispatch, useSelector } from "./hooks";
+import { Provider, connect } from "./components";
+import { useDispatch, useSelector } from "./hooks";
+
+export { Provider, useDispatch, useSelector, connect };
