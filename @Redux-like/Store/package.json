@@ -1,5 +1,5 @@
 {
-  "name": "@redux-like/core",
+  "name": "redux-like-core",
   "version": "0.0.1",
   "main": "dist/redux-like.js",
   "license": "MIT",
