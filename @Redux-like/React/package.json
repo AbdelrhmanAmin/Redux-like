@@ -1,14 +1,32 @@
 {
-  "name": "@redux-like/react",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "redux-like-react",
+  "version": "0.0.1",
+  "main": "dist/redux-like.js",
   "license": "MIT",
   "dependencies": {
-    "@redux-like/store": "1.0.0"
+    "redux-like-core": "0.0.1"
+  },
+  "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
+  "author": "Abdo Amin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdelrhmanAmin/Redux-like.git"
+  },
+  "keywords": [
+    "redux",
+    "state-management",
+    "state-manager",
+    "store",
+    "redux-like",
+    "react"
+  ],
+  "scripts": {
+    "build": "rollup -c"
   },
   "devDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rollup": "^2.77.2"
   },
   "peerDependencies": {
     "react": "^16.8 || ^17.0 || ^18.0",
