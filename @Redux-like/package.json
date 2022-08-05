@@ -7,11 +7,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AbdelrhmanAmin/Redux-like.git"
   },
-  "keywords": ["redux", "react", "state-manager", "store", "redux-like"],
+  "keywords": [
+    "redux",
+    "react",
+    "state-manager",
+    "store",
+    "redux-like"
+  ],
   "author": "Abdo Amin",
   "license": "MIT",
   "bugs": {
