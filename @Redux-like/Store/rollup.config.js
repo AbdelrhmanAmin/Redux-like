@@ -1,7 +1,7 @@
 export default {
   input: "./index.js",
   output: {
-    format: "iife",
+    format: "umd",
     name: "ReduxLike",
     file: "./dist/redux-like.js",
     sourcemap: "inline",
