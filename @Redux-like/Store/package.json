@@ -15,5 +15,8 @@
     "store",
     "redux-like"
   ],
-  "author": "Abdo Amin"
+  "author": "Abdo Amin",
+  "devDependencies": {
+    "rollup": "^2.77.2"
+  }
 }

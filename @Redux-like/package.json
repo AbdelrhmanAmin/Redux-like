@@ -1,8 +1,5 @@
 {
   "name": "redux-like",
-  "workspaces": [
-    "./*"
-  ],
   "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
   "version": "1.0.1",
   "main": "dist/redux-like.js",
