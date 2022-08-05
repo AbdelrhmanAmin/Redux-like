@@ -16,6 +16,8 @@ export default {
     }),
     babel({
       presets: ["@babel/preset-react"],
+      exclude: "node_modules/**",
+      extensions: [".js", ".jsx"],
     }),
     commonjs(),
   ],

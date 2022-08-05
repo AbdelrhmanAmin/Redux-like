@@ -1,10 +1,10 @@
 {
   "name": "redux-like-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/redux-like.js",
   "license": "MIT",
   "dependencies": {
-    "redux-like-core": "0.0.1"
+    "redux-like-core": "0.0.2"
   },
   "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
   "author": "Abdo Amin",
