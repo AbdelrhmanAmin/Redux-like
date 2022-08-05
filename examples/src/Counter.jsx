@@ -1,4 +1,4 @@
-import { connect } from "redux-like";
+import { connect } from "redux-like-react";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
   return (
