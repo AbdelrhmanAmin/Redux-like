@@ -1,6 +1,19 @@
 {
-  "name": "@redux-like/store",
-  "version": "1.0.0",
+  "name": "@redux-like/core",
+  "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdelrhmanAmin/Redux-like.git"
+  },
+  "keywords": [
+    "redux",
+    "state-management",
+    "state-manager",
+    "store",
+    "redux-like"
+  ],
+  "author": "Abdo Amin"
 }
