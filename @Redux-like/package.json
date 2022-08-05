@@ -1,12 +1,11 @@
 {
   "name": "redux-like",
-  "private": true,
   "workspaces": [
     "./*"
   ],
+  "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "dist/redux-like.js",
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
