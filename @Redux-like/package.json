@@ -24,8 +24,20 @@
   ],
   "author": "Abdo Amin",
   "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "bugs": {
     "url": "https://github.com/AbdelrhmanAmin/Redux-like/issues"
   },
-  "homepage": "https://github.com/AbdelrhmanAmin/Redux-like#readme"
+  "homepage": "https://github.com/AbdelrhmanAmin/Redux-like#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.77.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2"
+  }
 }
