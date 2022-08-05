@@ -1,5 +1,5 @@
 {
-  "name": "state-manager-react",
+  "name": "@redux-like/playground",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@redux-like/store": "1.0.0",
+    "@redux-like/react": "1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

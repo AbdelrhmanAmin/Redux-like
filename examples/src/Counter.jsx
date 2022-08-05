@@ -1,4 +1,4 @@
-import connect from "../components/connect";
+import { connect } from "@redux-like/react";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
   return (
@@ -25,9 +25,14 @@ const Counter = ({ onIncrement, onDecrement, count }) => {
           justifyContent: "center",
         }}
       >
-        <button style={{
-          marginRight: "10px",
-        }} onClick={() => onIncrement()}>Increment</button>
+        <button
+          style={{
+            marginRight: "10px",
+          }}
+          onClick={() => onIncrement()}
+        >
+          Increment
+        </button>
         <button onClick={() => count > 0 && onDecrement()}>Decrement</button>
       </div>
     </div>

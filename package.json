@@ -2,16 +2,16 @@
   "name": "state-manager",
   "private": true,
   "workspaces": [
-    "Store",
-    "state-manager-react"
+    "@Redux-like/*",
+    "examples"
   ],
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "yarn --cwd state-manager-react dev",
-    "build": "yarn --cwd state-manager-react build",
-    "preview": "yarn --cwd state-manager-react preview"
+    "dev": "yarn --cwd examples dev",
+    "build": "yarn --cwd examples build",
+    "preview": "yarn --cwd examples preview"
   },
   "repository": {
     "type": "git",
