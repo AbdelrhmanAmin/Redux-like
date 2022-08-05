@@ -11,6 +11,6 @@ const Provider = ({ children, store }) => {
   );
 };
 
-const useStore = () => useContext(StoreContext).store
+export const useStore = () => useContext(StoreContext).store
 
-export { Provider, useStore };
+export default Provider;
