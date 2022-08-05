@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "../hooks";
+import { useDispatch, useSelector } from "@redux-like/store-react";
 import { useState } from "react";
 
 const Todo = () => {
