@@ -1,22 +1,11 @@
 {
   "name": "@redux-like/store-react",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && mv dist ../",
-    "preview": "vite preview"
-  },
+  "main": "index.js",
   "dependencies": {
     "@redux-like/store": "1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
-    "vite": "^3.0.0"
   }
 }
