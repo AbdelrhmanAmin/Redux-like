@@ -655,10 +655,10 @@ redux-like-core@0.0.2, redux-like-core@^0.0.2:
   resolved "https://registry.yarnpkg.com/redux-like-core/-/redux-like-core-0.0.2.tgz#7bc2671957fffabe83dc7d8ba2f7d40ada009c99"
   integrity sha512-6vS1u/1pJ8pzcz++VMth/B/42nEJxx7/u26Xjeq1LkI4n5ZQnAcRVeASkTFUo7QLDglXYxBHbR3hLByk0pVDNQ==
 
-redux-like-react@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/redux-like-react/-/redux-like-react-0.0.4.tgz#23c4de2dfcfd772bf9e523bbe9adbc0b3f3583e2"
-  integrity sha512-NSDC9z6lX9eemQjLTGfYlfs5JrLlMacRzc8GywNh/BFR3xT8/KndbP/iUMp4tufZJ6V6tLVXPuATKWYZwQSH5A==
+redux-like-react@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/redux-like-react/-/redux-like-react-0.0.6.tgz#d3dccf78d8b327fe5cc26df54083ffdfcfaaee89"
+  integrity sha512-KUXhjPDXhZjQFZhnCpyqLrnz63tJyUbQZzYxEshP/EZSDzclqpPBBaYTwIh8uTns2V1YfSwOUNlFqUoJohLXFQ==
   dependencies:
     redux-like-core "0.0.2"
 
