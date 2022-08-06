@@ -7,12 +7,16 @@ const pkg = require("./package.json");
 
 export default {
   input: "./index.js",
+  external: Object.keys(pkg.peerDependencies || {}).concat("react-dom"),
   output: [
     {
-      format: "cjs",
+      format: "umd",
+      name: "react-redux-like",
       file: pkg.main,
-      name: "ReduxLike-main",
-      sourcemap: true,
+      globals: {
+        react: "React",
+        "react-dom": "ReactDOM",
+      }
     },
   ],
   plugins: [

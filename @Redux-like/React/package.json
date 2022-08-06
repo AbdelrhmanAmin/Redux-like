@@ -1,8 +1,7 @@
 {
   "name": "redux-like-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/redux-like.js",
-  "module": "dist/redux-like-esm.js",
   "license": "MIT",
   "files": [
     "dist",
