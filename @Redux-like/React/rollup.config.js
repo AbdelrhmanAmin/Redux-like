@@ -1,24 +1,35 @@
 import babel from "@rollup/plugin-babel";
-import { nodeResolve } from "@rollup/plugin-node-resolve";
+import resolve from "@rollup/plugin-node-resolve";
+import external from "rollup-plugin-peer-deps-external"
 import commonjs from "@rollup/plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
+const pkg = require("./package.json");
 
 export default {
   input: "./index.js",
-  output: {
-    format: "umd",
-    name: "ReduxLike",
-    file: "./dist/redux-like.js",
-    sourcemap: "inline",
-  },
+  output: [
+    {
+      format: "cjs",
+      file: pkg.main,
+      name: "ReduxLike-main",
+      sourcemap: true,
+    },
+    {
+      format: "esm",
+      name: "ReduxLike-module",
+      file: pkg.module,
+      sourcemap: true,
+    },
+  ],
   plugins: [
-    nodeResolve({
-      extensions: [".js", ".jsx"],
-    }),
-    babel({
-      presets: ["@babel/preset-react"],
-      exclude: "node_modules/**",
-      extensions: [".js", ".jsx"],
-    }),
+    external(),
+    resolve(),
     commonjs(),
+    // babel({
+    //   presets: ["@babel/preset-react"],
+    //   exclude: "node_modules/**",
+    //   extensions: [".js", ".jsx"],
+    // }),
+    terser(),
   ],
 };
