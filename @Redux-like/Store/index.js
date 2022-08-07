@@ -1,3 +1,4 @@
 import createStore from "./createStore";
 import combineReducers from "./combineReducers";
-export { createStore, combineReducers };
+import applyMiddleware from "./applyMiddleware";
+export { createStore, combineReducers, applyMiddleware };

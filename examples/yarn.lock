@@ -638,15 +638,20 @@ react@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
 
-redux-like-core@0.0.2, redux-like-core@^0.0.2:
+redux-like-core@0.0.2:
   version "0.0.2"
   resolved "https://registry.npmjs.org/redux-like-core/-/redux-like-core-0.0.2.tgz"
   integrity sha512-6vS1u/1pJ8pzcz++VMth/B/42nEJxx7/u26Xjeq1LkI4n5ZQnAcRVeASkTFUo7QLDglXYxBHbR3hLByk0pVDNQ==
 
+redux-like-core@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/redux-like-core/-/redux-like-core-0.0.6.tgz#1b6b1970e35b7fb66e1e227b8bda72507fde38db"
+  integrity sha512-4lRuPwrx3oCfMuStmk6iLazan/5TrsWfJYhv/7ujZuzlwj+s9tSSRCK1WHF8/ShX0Kws6RS9UVNa2Rvsa0p3cQ==
+
 redux-like-react@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/redux-like-react/-/redux-like-react-1.0.0.tgz#2b945e9599da6706a33a4dd555508d8ab61fd2c4"
-  integrity sha512-pScVGoUCCnBGaG5SoAWkw9XmeB0yBCoLHkne7hrs6eh8wCrqPlYQuahoe1rfL4VxvGOCeWVKZosaPW0/TX+A8Q==
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/redux-like-react/-/redux-like-react-1.0.1.tgz"
+  integrity sha512-YIN4byLqXWoiDzFDGktEqKEfGyoSfk9jD4pPEZ8DUtStqvpatcpfUk/kX07jpPRh6M0SGfKyfIZabWLvr7LQOw==
   dependencies:
     redux-like-core "0.0.2"
 
