@@ -1,6 +1,6 @@
 {
   "name": "redux-like-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -10,6 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/AbdelrhmanAmin/Redux-like.git"
   },
+  "files": [
+    "dist",
+    "readme.md"
+  ],
   "keywords": [
     "redux",
     "state-management",
