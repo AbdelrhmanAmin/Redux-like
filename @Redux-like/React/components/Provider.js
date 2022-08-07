@@ -1,6 +1,6 @@
-import { createContext, useContext, useMemo } from "react";
+import React from "react";
 
-const StoreContext = createContext();
+const StoreContext = React.createContext();
 
 const Provider = ({ children, store }) => {
   const contextValue = { store };
@@ -11,6 +11,6 @@ const Provider = ({ children, store }) => {
   );
 };
 
-const useStore = () => useContext(StoreContext).store;
+const useStore = () => React.useContext(StoreContext).store;
 
 export { Provider, useStore };

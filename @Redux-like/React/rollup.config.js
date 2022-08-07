@@ -1,36 +1,32 @@
 import babel from "@rollup/plugin-babel";
-import resolve from "@rollup/plugin-node-resolve";
 import external from "rollup-plugin-peer-deps-external";
+import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import { terser } from "rollup-plugin-terser";
-const pkg = require("./package.json");
+// import { terser } from "rollup-plugin-terser";
 
 export default {
   input: "./index.js",
-  external: Object.keys(pkg.peerDependencies || {}).concat("react-dom"),
+  external: ["react", "react-dom"],
   output: [
     {
-      format: "umd",
-      name: "react-redux-like",
-      file: pkg.main,
-      globals: {
-        react: "React",
-        "react-dom": "ReactDOM",
-      }
+      file: "dist/index.js",
+      format: "cjs",
+    },
+    {
+      file: "dist/index.es.js",
+      format: "es",
+      exports: "named",
     },
   ],
   plugins: [
-    external(),
-    resolve(),
     babel({
-      babelHelpers: "bundled",
       presets: ["@babel/preset-react"],
       exclude: "node_modules/**",
       extensions: [".js", ".jsx"],
     }),
-    commonjs({
-      include: "node_modules/**",
+    external(),
+    resolve({
+      extensions: [".js", ".jsx"],
     }),
-    terser(),
   ],
 };

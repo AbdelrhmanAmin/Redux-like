@@ -1,10 +1,10 @@
-import { useEffect, useReducer } from "react";
+import React from "react";
 import didStateChange from "../utils/didStateChange";
 import { useStore } from "./Provider";
 
 const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
   return (props) => {
-    const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+    const [_, forceUpdate] = React.useReducer((x) => x + 1, 0);
     const store = useStore();
     let isSubscribed = false;
     let prevState;
@@ -12,7 +12,7 @@ const connect = (mapStateToProps, mapDispatchToProps) => (WrappedComponent) => {
       isSubscribed = true;
       prevState = mapStateToProps(store.getState());
     }
-    useEffect(() => {
+    React.useEffect(() => {
       let unsubscribe;
       if (isSubscribed) {
         unsubscribe = store.subscribe(() => {

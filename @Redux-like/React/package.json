@@ -1,16 +1,9 @@
 {
   "name": "redux-like-react",
-  "version": "0.0.6",
-  "main": "dist/redux-like.js",
+  "version": "0.0.15",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "license": "MIT",
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
-  ],
-  "dependencies": {
-    "redux-like-core": "0.0.2"
-  },
   "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
   "author": "Abdo Amin",
   "repository": {
@@ -28,6 +21,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "yarn prebuild && rollup -c"
+  },
+  "dependencies": {
+    "redux-like-core": "0.0.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
