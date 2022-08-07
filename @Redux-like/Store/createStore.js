@@ -1,4 +1,3 @@
-import Store from "./Store";
 import findDiff from "./utils/findDiff";
 
 const isStateOmitted = (initialState, enhancer) => {
