@@ -5,14 +5,14 @@ const isStateOmitted = (initialState, enhancer) => {
 };
 
 const createStore = (rootReducer, initialState, enhancer) => {
-  let currentState = {};
+  let state = {};
   const listeners = [];
   if (isStateOmitted(initialState, enhancer)) {
     enhancer = initialState;
     initialState = {};
   }
   // rootReducer(state, action) => newState
-  currentState = rootReducer(initialState, {});
+  state = rootReducer(initialState, {});
   if (enhancer) {
     return enhancer(createStore)(rootReducer, state);
   }
@@ -38,12 +38,12 @@ const createStore = (rootReducer, initialState, enhancer) => {
     // only update the affected slots in state.
     // @TODO: try to optimize this. Redux uses `currentState = reducer(currentState, action)`
     Object.keys(diff).forEach((key) => {
-      currentState = Object.assign({}, state, { [key]: newState[key] });
+      state = Object.assign({}, state, { [key]: newState[key] });
     });
     publish();
   };
   const getState = () => {
-    return currentState;
+    return state;
   };
   return {
     dispatch,
