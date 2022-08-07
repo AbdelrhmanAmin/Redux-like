@@ -1,4 +1,4 @@
-import { combineReducers } from "redux-like";
+import { combineReducers } from "redux-like-core";
 import counterReducer from "./counterReducer";
 import itemsReducer from "./itemsReducer";
 

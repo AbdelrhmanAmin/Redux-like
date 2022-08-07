@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer } from "react";
+import React from "react";
 import { useStore } from "../components/Provider";
 import didStateChange from "../utils/didStateChange";
 
@@ -9,10 +9,10 @@ const useSelector = (selector) => {
     }
     return;
   }
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [, forceUpdate] = React.useReducer((x) => x + 1, 0);
   const store = useStore();
-  let prevState = useMemo(() => selector(store.getState()), []);
-  useEffect(() => {
+  let prevState = React.useMemo(() => selector(store.getState()), []);
+  React.useEffect(() => {
     const unsubscribe = store.subscribe(() => {
       // Logic to detect if the selected slots have changed, if so then update the component
       const shouldUpdate = didStateChange(prevState, selector, store);
