@@ -1,6 +1,6 @@
 {
   "name": "redux-like-core",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "main": "dist/redux-like.js",
   "license": "MIT",
   "description": "This is my basic Redux implementation. It is not intended to be used as a production-ready library, but rather as a learning tool.",
