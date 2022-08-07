@@ -5,7 +5,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "bash ./move-dist.sh"
+    "build": "bash ./build.sh"
   },
   "repository": {
     "type": "git",
