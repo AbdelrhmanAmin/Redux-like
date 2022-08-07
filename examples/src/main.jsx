@@ -1,5 +1,5 @@
 import { Provider } from "redux-like-react";
-import { createStore, applyMiddleware } from "redux-like-core";
+import { applyMiddleware, createStore } from "redux-like-core";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -7,10 +7,8 @@ import "./index.css";
 import rootReducer from "./reducers";
 
 const middleware = (api) => (next) => (action) => {
-  console.log("action", action);
-  const value = next(action);
-  console.log("value", value);
-  return value;
+  console.log({ action });
+  return next(action);
 };
 
 const middlewares = [middleware];

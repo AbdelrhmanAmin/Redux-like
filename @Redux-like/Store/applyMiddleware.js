@@ -1,3 +1,4 @@
+import compose from "./utils/compose";
 /*
   this will return the new store with the composed dispatch
   {
