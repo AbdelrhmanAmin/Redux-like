@@ -1,4 +1,5 @@
 import Counter from "./Counter";
+import TimeTraveler from "./TimeTraverler";
 import Todo from "./Todo";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       >
         <Counter />
         <Todo />
+        <TimeTraveler />
       </div>
     </div>
   );

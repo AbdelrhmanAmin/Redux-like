@@ -6,7 +6,18 @@ const Todo = () => {
   const items = useSelector((state) => state.items);
   const [newItem, setNewItem] = useState("");
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "start",
+        marginRight: "40px",
+        paddingRight: "40px",
+        borderRight: "1px solid #ccc",
+        height: "100vh",
+      }}
+    >
       <strong style={{ fontSize: "36px" }}>Todo</strong>
 
       <div
