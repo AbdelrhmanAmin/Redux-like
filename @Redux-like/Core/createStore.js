@@ -34,12 +34,7 @@ const createStore = (rootReducer, initialState, enhancer) => {
   const dispatch = ({ type, ...rest }) => {
     const action = { type, ...rest };
     const newState = rootReducer(state, action);
-    const diff = findDiff(state, newState);
-    // only update the affected slots in state.
-    // @TODO: try to optimize this. Redux uses `currentState = reducer(currentState, action)`
-    Object.keys(diff).forEach((key) => {
-      state = Object.assign({}, state, { [key]: newState[key] });
-    });
+    state = newState;
     publish();
   };
   const getState = () => {
