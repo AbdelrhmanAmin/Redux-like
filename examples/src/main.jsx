@@ -6,13 +6,7 @@ import App from "./App";
 import "./index.css";
 import rootReducer from "./reducers";
 
-const middleware = (api) => (next) => (action) => {
-  console.log({ action });
-  return next(action);
-};
-
-const middlewares = [middleware];
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+const store = createStore(rootReducer);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
