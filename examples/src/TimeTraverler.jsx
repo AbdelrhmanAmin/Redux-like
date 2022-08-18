@@ -1,17 +1,33 @@
-import { useSelector } from "redux-like-react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "redux-like-react";
 
 const TimeTraveler = () => {
   const history = useSelector((state) => state.past);
-  console.log(history)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(history);
+  }, [history]);
   return (
     <div>
       <strong style={{ fontSize: "36px" }}>Time Traveler</strong>
       <ul>
-        {/* {Object.entries(history).map(([time, entry], i) => (
+        {Object.entries(history).map(([time, entry], i) => (
           <li key={i}>
-            {time}-{entry.action}
+            <strong>
+              {entry.action} - {time  }  
+            </strong>
+            <button onClick={() => dispatch({ type: "TRAVEL", timestamp: time })}>
+              Visit
+            </button>
+            <button
+              onClick={() =>
+                dispatch({ type: "TRAVEL", timestamp: time, shouldRemove: true })
+              }
+            >
+              Remove
+            </button>
           </li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );
