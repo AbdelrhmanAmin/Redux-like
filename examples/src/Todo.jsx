@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
+  const items = useSelector((state) => state.present.items);
   const [newItem, setNewItem] = useState("");
   return (
     <div

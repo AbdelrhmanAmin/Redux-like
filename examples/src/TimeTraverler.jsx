@@ -1,7 +1,8 @@
 import { useSelector } from "redux-like-react";
 
 const TimeTraveler = () => {
-  // const history = useSelector((state) => state.history);
+  const history = useSelector((state) => state.past);
+  console.log(history)
   return (
     <div>
       <strong style={{ fontSize: "36px" }}>Time Traveler</strong>

@@ -1,4 +1,5 @@
 import { connect } from "redux-like-react";
+import { store } from "./main";
 
 const Counter = ({ onIncrement, onDecrement, count }) => {
   return (
@@ -40,7 +41,7 @@ const Counter = ({ onIncrement, onDecrement, count }) => {
 };
 
 const mapStateToProps = (state) => ({
-  count: state.count,
+  count: state.present.count,
 });
 
 const mapDispatchToProps = (dispatch) => ({

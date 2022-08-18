@@ -6,7 +6,7 @@ import App from "./App";
 import "./index.css";
 import rootReducer from "./reducers";
 
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
