@@ -5,6 +5,7 @@ const TimeTraveler = () => {
   const history = useSelector((state) => state.past);
   const dispatch = useDispatch();
   useEffect(() => {
+    // @Todo this is not working?
     console.log(history);
   }, [history]);
   return (
